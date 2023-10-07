@@ -1,0 +1,5 @@
+CREATE TABLE todo (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  content VARCHAR(255) DEFAULT NULL,
+  completed BOOLEAN not null default 0
+);
