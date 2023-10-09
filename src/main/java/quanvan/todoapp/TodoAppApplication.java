@@ -1,5 +1,6 @@
 package quanvan.todoapp;
 
+//import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -31,7 +32,7 @@ public class TodoAppApplication implements CommandLineRunner{
 
 		Todo todo = new Todo();
 		todo.setContent("This is the content");
-		
+
 		user.getTodoList().add(todo);
 		todoRepository.save(todo);
 		userRepository.save(user);
