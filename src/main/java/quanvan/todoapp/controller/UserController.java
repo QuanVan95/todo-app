@@ -1,6 +1,9 @@
 package quanvan.todoapp.controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import quanvan.todoapp.dto.UserDto;
 import quanvan.todoapp.entity.Todo;
 import quanvan.todoapp.entity.User;
 import quanvan.todoapp.repository.TodoRepository;
@@ -8,7 +11,8 @@ import quanvan.todoapp.repository.UserRepository;
 import quanvan.todoapp.request.AddTodoRequest;
 import quanvan.todoapp.request.AddUserRequest;
 import quanvan.todoapp.request.UpdateTodoRequest;
-
+import quanvan.todoapp.service.UserService;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -17,10 +21,22 @@ public class UserController {
 
     private UserRepository userRepository;
     private TodoRepository todoRepository;
+    private UserService userService;
 
-    public UserController(UserRepository userRepository, TodoRepository todoRepository) {
+    @GetMapping
+    public ModelAndView users(Model model){
+        List<UserDto> users = userService.findAllUsers();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("users", users).setViewName("users"); // return users.html template
+        return modelAndView;
+    }
+
+    public UserController(UserRepository userRepository,
+                          TodoRepository todoRepository,
+                          UserService userService) {
         this.userRepository = userRepository;
         this.todoRepository = todoRepository;
+        this.userService = userService;
     }
 
     @GetMapping("/{userId}")
