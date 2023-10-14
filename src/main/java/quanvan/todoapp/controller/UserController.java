@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping
     public User addUser(@RequestBody AddUserRequest userRequest) {
         User user = new User();
-        user.setUsername(userRequest.getUsername());
+        user.setName(userRequest.getName());
         user.setPassword(userRequest.getPassword());
         return userRepository.save(user);
     }

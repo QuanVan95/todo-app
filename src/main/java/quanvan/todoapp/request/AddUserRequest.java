@@ -2,23 +2,23 @@ package quanvan.todoapp.request;
 
 public class AddUserRequest {
 
-    private String username;
+    private String name;
     private String password;
 
     public AddUserRequest() {
     }
 
-    public AddUserRequest(String username, String password) {
-        this.username = username;
+    public AddUserRequest(String name, String password) {
+        this.name = name;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
