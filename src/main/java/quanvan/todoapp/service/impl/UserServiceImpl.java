@@ -1,4 +1,4 @@
-package quanvan.todoapp.service;
+package quanvan.todoapp.service.impl;
 
 import quanvan.todoapp.dto.UserDto;
 import quanvan.todoapp.entity.Role;
@@ -7,6 +7,7 @@ import quanvan.todoapp.repository.RoleRepository;
 import quanvan.todoapp.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import quanvan.todoapp.service.UserService;
 
 import java.util.Arrays;
 import java.util.List;
